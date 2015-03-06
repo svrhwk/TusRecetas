@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<recetas>
+	<receta nombre="Huevos fritos (2 personas)">
+		<ingredientes>
+			<ingrediente>4 huevos</ingrediente>
+			<ingrediente>aceite</ingrediente>
+			<ingrediente>sal</ingrediente>
+		</ingredientes>
+		<pasos>
+			<paso>
+			    1.- Añade abundante aceite en una sarten y ponla a calentar.
+		    </paso>
+			<paso>
+			    2.- Cuando el aceite esté caliente vierte un huevo y echa un poco de sal en la yema.
+		    </paso>
+			<paso>
+			    3.- Con una espumadera haz que el aceite pase por encima del huevo.
+		    </paso>
+			<paso>
+			    4.- Cuando toda la clara del huevo esté cocinada, retira el huevo con una espumadera.
+		    </paso>
+		</pasos>
+	</receta>
+
+	<receta nombre="Arroz a la cubana (1 persona)">
+		<ingredientes>
+			<ingrediente>
+			    1/2 vasito de arroz
+		    </ingrediente>
+			<ingrediente>
+			    1 vaso y 1/4 de agua
+		    </ingrediente>
+			<ingrediente>
+			    2 huevos
+		    </ingrediente>
+			<ingrediente>
+			    tomate frito
+		    </ingrediente>
+			<ingrediente>
+			    sal
+		    </ingrediente>
+			<ingrediente>
+			    aceite
+		    </ingrediente>
+		</ingredientes>
+		<pasos>
+			<paso>
+			    1.- Añade el arroz, el agua y un chorrito de aceite (en ese orden) en una pequeña cazuela y ponla a fuego medio.
+		    </paso>
+			<paso>
+			    2.- Cuando empiece a hervir añade una pizca de sal. Dejaremos cocer durante 6-8 minutos.
+		    </paso>
+			<paso>
+			    3.- Cuando haya terminado de cocer, tapar la cazuela con una tapa y dejar reposar 3 minutos.
+		    </paso>
+			<paso>
+			    4.- Mientras el arroz reposa, freir los huevos en una sarten.
+		    </paso>
+			<paso>
+			    5.- Emplatar el arroz y los huevos y añadir tanto tomate frito como se desee.
+		    </paso>
+		</pasos>
+	</receta>
+</recetas>

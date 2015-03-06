@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">TusRecetas</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="title_activity_receta">RecetaActivity</string>
+    <string name="app_preferences">recetas</string>
+    <string name="title_activity_edit_receta">EditRecetaActivity</string>
+    <string name="numero">  1.-   </string>
+
+</resources>
