@@ -167,6 +167,7 @@ public class EditRecetaActivity extends Activity {
 	public class GroupHolder{
 		public ImageView mIV;
 		public TextView mtv;
+		
 		public Button mBtn;
 	}
 	public class ViewHolder{
