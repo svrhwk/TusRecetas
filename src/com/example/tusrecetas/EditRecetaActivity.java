@@ -85,8 +85,8 @@ public class EditRecetaActivity extends Activity {
 
 			ExpandableListView elvIngredientes = (ExpandableListView) findViewById(R.id.elvIngredientes);
 			ExpandableListView elvPasos = (ExpandableListView) findViewById(R.id.elvPasos);
-			ExpandableListViewAdapter ingredientesAdapter = new ExpandableListViewAdapter(this, receta.getIngredientes(), lista_et_ing, ING_INTERNAL_ID, LISTA_ING,	R.layout.receta_item_rowlayout_prueba, R.layout.lista_parent);
-			ExpandableListViewAdapter pasosAdapter = new ExpandableListViewAdapter( this, receta.getPasos(), lista_et_pasos, PASOS_INTERNAL_ID,	LISTA_PASOS, R.layout.receta_item_rowlayout_prueba,	R.layout.lista_parent);
+			ExpandableListViewAdapter ingredientesAdapter = new ExpandableListViewAdapter(this, receta.getIngredientes(), lista_et_ing, ING_INTERNAL_ID, LISTA_ING,	R.layout.receta_item_rowlayout_prueba, R.layout.lista_parent, focused_pos);
+			ExpandableListViewAdapter pasosAdapter = new ExpandableListViewAdapter( this, receta.getPasos(), lista_et_pasos, PASOS_INTERNAL_ID,	LISTA_PASOS, R.layout.receta_item_rowlayout_prueba,	R.layout.lista_parent, focused_pos);
 			elvIngredientes.setAdapter(ingredientesAdapter);
 			elvPasos.setAdapter(pasosAdapter);
 
@@ -94,7 +94,10 @@ public class EditRecetaActivity extends Activity {
 //			View rowView = inflater.inflate(R.layout.receta_item_rowlayout_prueba, null);
 
 //			if (savedInstanceState != null) {
-//
+//				
+//				if(focused_pos/ING_INTERNAL_ID == ING_ID){//el focused es de los ingredientes
+//					
+//				}
 //				for (int i = 0; i < lista_et_ing.size(); i++) {
 //					EditText et = lista_et_ing.get(i);
 //					int tag = (Integer) et.getTag();
@@ -187,12 +190,13 @@ public class EditRecetaActivity extends Activity {
 		private int childResource;
 		private int parentResource;
 		private int internal_id;
+		private int focused_id;
 
 		// private Context context;
 		public ExpandableListViewAdapter(Context context,
 				MyArrayList<String> lista, MyArrayList<EditText> lista_et,
 				int internal_id, String listName, int childResource,
-				int parentResource) {
+				int parentResource, int focused_id) {
 			// this.context = context;
 			this.lista = lista;
 			this.listName = listName;
@@ -200,6 +204,7 @@ public class EditRecetaActivity extends Activity {
 			this.parentResource = parentResource;
 			this.lista_et = lista_et;
 			this.internal_id = internal_id;
+			this.focused_id = focused_id;
 
 		}
 
@@ -243,8 +248,10 @@ public class EditRecetaActivity extends Activity {
 				// Button btnEliminar = (Button)
 				// convertView.findViewById(R.id.btnEliminarOK2);
 				holder.mEditText.setText(lista.get(childPosition));
-				holder.mEditText.setTag(Integer.valueOf(childPosition
-						+ internal_id));
+				holder.mEditText.setTag(Integer.valueOf(childPosition + internal_id));
+				if(childPosition + internal_id == focused_pos){
+					holder.mEditText.requestFocus();
+				}
 				holder.mBtnEliminar.setTag(childPosition);
 
 				// if(childPosition==0){
@@ -259,7 +266,7 @@ public class EditRecetaActivity extends Activity {
 					public void onFocusChange(View v, boolean hasFocus) {
 						try {
 
-							int index = (Integer) v.getTag();
+							int index = ((Integer) v.getTag()) % internal_id;
 							if (!hasFocus) {
 
 								lista.remove(index);
@@ -269,6 +276,7 @@ public class EditRecetaActivity extends Activity {
 							} else {
 								// btnEdit.setVisibility(View.VISIBLE);
 								focused = v;
+								focused_pos = (Integer) v.getTag();
 							}
 						} catch (Exception e) {
 							Log.e("getView", "onFocusChange(): "+ e.getMessage());
@@ -458,13 +466,14 @@ public class EditRecetaActivity extends Activity {
 //
 //		Log.d("EditRecetaActivity", "onSave, ingSize:"				+ receta.getIngredientes().size());
 //		
-//		for (int i = 0; i < receta.getIngredientes().size(); i++) {
-//			Log.d("EditRecetaActivity", "onSave, listaIng[" + i + "]: "	+ receta.getIngredientes().get(i));
-//		}
+		for (int i = 0; i < receta.getIngredientes().size(); i++) {
+			Log.d("EditRecetaActivity", "onSave, listaIng[" + i + "]: "	+ receta.getIngredientes().get(i));
+		}
 
 		if (focused != null && (focused instanceof EditText)) {
 			focused_pos = (Integer) focused.getTag();
 			outState.putInt(FOCUSED_ID_BUNDLE, focused_pos);
+			focused.clearFocus();
 		}
 		Gson gson = new Gson();
 		String recetaSerializada = gson.toJson(receta);
