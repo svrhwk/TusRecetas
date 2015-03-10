@@ -33,7 +33,11 @@
             android:label="@string/title_activity_edit_receta"
             android:windowSoftInputMode="stateUnchanged|adjustPan" >
         </activity>
-<!--             android:configChanges="orientation|screenSize|keyboardHidden" -->
+        <!-- android:configChanges="orientation|screenSize|keyboardHidden" -->
+        <activity
+            android:name="com.example.tusrecetas.Prueba"
+            android:label="@string/title_activity_prueba" >
+        </activity>
     </application>
 
 </manifest>

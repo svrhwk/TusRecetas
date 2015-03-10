@@ -8,5 +8,6 @@
     <string name="app_preferences">recetas</string>
     <string name="title_activity_edit_receta">EditRecetaActivity</string>
     <string name="numero">  1.-   </string>
+    <string name="title_activity_prueba">Prueba</string>
 
 </resources>

@@ -358,6 +358,15 @@ public class MainActivity extends Activity {
 			Log.e("MainActivity","btnClick: "+e.getMessage());
 		}
   	}
+	public void toPrueba(View view){
+		Intent intent = new Intent(MainActivity.this,Prueba.class);
+		Receta receta = recetas.get(0);
+		Gson gson = new Gson();
+		String recetaSerializada = gson.toJson(receta);
+		intent.putExtra("receta", recetaSerializada);
+		intent.putExtra("posicion", 0);
+		startActivity(intent);
+	}
   	
   	protected void salvarDatos(){
   		try {
