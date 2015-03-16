@@ -13,6 +13,7 @@
         android:background="@null"
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:text="1.- Añade el arroz, el agua y un chorrito de aceite (en ese orden) en una pequeña cazuela y ponla a fuego medio." 
+        android:saveEnabled="false"
         />
 
     <Button

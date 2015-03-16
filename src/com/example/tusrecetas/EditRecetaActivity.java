@@ -61,8 +61,7 @@ public class EditRecetaActivity extends Activity {
 		// setContentView(R.layout.activity_edit_receta);
 		try {
 			if (savedInstanceState != null) {
-				String recetaSerialized = savedInstanceState
-						.getString(RECETA_BUNDLE);
+				String recetaSerialized = savedInstanceState.getString(RECETA_BUNDLE);
 				Gson gson = new Gson();
 				receta = gson.fromJson(recetaSerialized, Receta.class);
 				posicion = savedInstanceState.getInt(RECETA_POSICION_BUNDLE);
@@ -75,8 +74,7 @@ public class EditRecetaActivity extends Activity {
 			} else {
 				cargarReceta();
 			}
-			Log.d("EditRecetaActivity", "onCreate, ingSize:"
-					+ receta.getIngredientes().size());
+			Log.d("EditRecetaActivity", "onCreate, ingSize:" + receta.getIngredientes().size());
 			lista_et_ing = new MyArrayList<EditText>();
 			lista_et_pasos = new MyArrayList<EditText>();
 
@@ -325,8 +323,7 @@ public class EditRecetaActivity extends Activity {
 			View rowView = convertView;
 			try {
 				if (rowView == null) {
-					LayoutInflater inflater = (LayoutInflater) getBaseContext()
-							.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+					LayoutInflater inflater = (LayoutInflater) getBaseContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 					rowView = inflater.inflate(parentResource, null);
 					GroupHolder viewHolder = new GroupHolder();
 					viewHolder.mBtn = (Button) rowView

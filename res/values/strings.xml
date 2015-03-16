@@ -9,5 +9,7 @@
     <string name="title_activity_edit_receta">EditRecetaActivity</string>
     <string name="numero">  1.-   </string>
     <string name="title_activity_prueba">Prueba</string>
+    <string name="ingredientes">Ingredientes</string>
+    <string name="pasos">Pasos</string>
 
 </resources>
